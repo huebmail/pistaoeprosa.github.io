@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pistão & Prosa — Em Breve</title>
+  <meta name="description" content="Pistão & Prosa — Histórias, risadas e paixão por motores. Podcast automotivo. Em breve!" />
+  <style>
+    /* Fonte fallback simples (sem external fonts pra não depender de CDN) */
+    :root{
+      --bg1: #0b0b0d;
+      --bg2: #2b0b23;
+      --accent: #d72638;       /* vermelho metálico */
+      --accent-2: #f5a623;     /* amarelo quente */
+      --muted: #cfcfcf;
+    }
+    *{box-sizing: border-box}
+    html,body{height:100%;margin:0}
+    body{
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at 10% 20%, rgba(215,38,56,0.06) 0%, transparent 15%),
+                  linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+      color: #fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+
+    .card{
+      width:100%;
+      max-width:980px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+      border-radius:14px;
+      padding:36px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* subtle metallic stripes on top-right */
+    .card::after{
+      content:"";
+      position:absolute;
+      right:-120px;
+      top:-40px;
+      width:380px;height:380px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.00) 30%, rgba(255,255,255,0.02) 60%, rgba(255,255,255,0) 100%);
+      transform: rotate(25deg);
+      filter: blur(8px);
+      opacity:0.65;
+      pointer-events:none;
+    }
+
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .logo{
+      width:120px;
+      height:120px;
+      display:block;
+      flex-shrink:0;
+    }
+
+    h1{
+      margin:8px 0 6px;
+      font-size:34px;
+      letter-spacing:1px;
+    }
+    .tag{
+      color:var(--accent-2);
+      font-weight:600;
+      margin-bottom:14px;
+    }
+    p.lead{
+      color:var(--muted);
+      max-width:760px;
+      margin: 0 auto 18px;
+      line-height:1.5;
+      font-size:18px;
+    }
+
+    .when{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:999px;
+      background: linear-gradient(90deg, rgba(215,38,56,0.12), rgba(245,166,35,0.08));
+      color: #fff;
+      font-weight:600;
+      border: 1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    }
+
+    footer{
+      margin-top:20px;
+      color: rgba(255,255,255,0.32);
+      font-size:13px;
+    }
+
+    /* responsive */
+    @media (max-width:520px){
+      .logo{width:88px;height:88px}
+      h1{font-size:26px}
+      .card{padding:22px}
+      p.lead{font-size:15px}
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="main" aria-labelledby="title">
+    <div class="logo-wrap" aria-hidden="true">
+      <!-- SVG do logo simplificado: pistão + microfone -->
+      <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+            <stop offset="1" stop-color="#cfcfcf" stop-opacity="0.75"/>
+          </linearGradient>
+          <filter id="f1" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="2" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- circle badge -->
+        <circle cx="100" cy="100" r="94" fill="#0f0f11"/>
+        <circle cx="100" cy="100" r="74" fill="url(#g1)" opacity="0.04"/>
+
+        <!-- piston stylized (left) -->
+        <g transform="translate(40,40) scale(0.7)">
+          <rect x="30" y="10" width="18" height="66" rx="4" fill="url(#g1)" opacity="0.98"/>
+          <rect x="24" y="70" width="30" height="6" rx="3" fill="#101010"/>
+          <rect x="14" y="76" width="50" height="8" rx="4" fill="#0d0d0d" />
+          <circle cx="39" cy="8" r="8" fill="#2b2b2b"/>
+        </g>
+
+        <!-- microphone (right) -->
+        <g transform="translate(110,38) scale(0.7)">
+          <rect x="18" y="8" width="26" height="48" rx="12" fill="url(#g1)"/>
+          <rect x="26" y="56" width="10" height="16" rx="3" fill="#101010"/>
+          <rect x="14" y="72" width="38" height="6" rx="3" fill="#0d0d0d"/>
+          <line x1="28" y1="62" x2="46" y2="62" stroke="rgba(0,0,0,0.25)" stroke-width="2"/>
+        </g>
+
+        <!-- small gear behind -->
+        <g transform="translate(94,94) rotate(12)">
+          <g filter="url(#f1)">
+            <path d="M0 -44 a44 44 0 1 0 0.01 0" stroke="#2b2b2b" stroke-width="6" fill="none"/>
+            <circle cx="0" cy="0" r="10" fill="#121212"/>
+          </g>
+        </g>
+
+      </svg>
+    </div>
+
+    <h1 id="title">Pistão & Prosa</h1>
+    <div class="tag">Histórias, risadas e paixão por motores</div>
+
+    <p class="lead">
+      Bem-vindo! Somos três amigos que conversam sobre carros — clássicos, esportivos e histórias da estrada.
+      Nosso site está em construção, mas já já a garagem abre as portas: episódios, encontros, bastidores e muito papo de oficina.
+    </p>
+
+    <div class="when">Em breve — fique ligado!</div>
+
+    <footer>
+      <div>Canal no YouTube: <em>@pistaoeprosa</em> (já disponível)</div>
+      <div style="margin-top:6px">© Pistão & Prosa</div>
+    </footer>
+  </div>
+</body>
+</html>
