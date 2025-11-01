@@ -1,178 +1,119 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pistão & Prosa — Em Breve</title>
-  <meta name="description" content="Pistão & Prosa — Histórias, risadas e paixão por motores. Podcast automotivo. Em breve!" />
-  <style>
-    /* Fonte fallback simples (sem external fonts pra não depender de CDN) */
-    :root{
-      --bg1: #0b0b0d;
-      --bg2: #2b0b23;
-      --accent: #d72638;       /* vermelho metálico */
-      --accent-2: #f5a623;     /* amarelo quente */
-      --muted: #cfcfcf;
-    }
-    *{box-sizing: border-box}
-    html,body{height:100%;margin:0}
-    body{
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background: radial-gradient(circle at 10% 20%, rgba(215,38,56,0.06) 0%, transparent 15%),
-                  linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
-      color: #fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:32px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pistão & Prosa — Em Breve</title>
+    
+    <style>
+        /* Estilos básicos para o fundo escuro e centralização */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a; /* Fundo bem escuro */
+            color: #f0f0f0; /* Cor do texto claro */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
 
-    .card{
-      width:100%;
-      max-width:980px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.04);
-      box-shadow: 0 10px 35px rgba(0,0,0,0.6);
-      border-radius:14px;
-      padding:36px;
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
+        /* Estilo para o cartão central (container) */
+        .container {
+            background-color: #282828; /* Fundo do cartão ligeiramente mais claro que o body */
+            padding: 50px 40px;
+            border-radius: 12px;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
 
-    /* subtle metallic stripes on top-right */
-    .card::after{
-      content:"";
-      position:absolute;
-      right:-120px;
-      top:-40px;
-      width:380px;height:380px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.00) 30%, rgba(255,255,255,0.02) 60%, rgba(255,255,255,0) 100%);
-      transform: rotate(25deg);
-      filter: blur(8px);
-      opacity:0.65;
-      pointer-events:none;
-    }
+        /* Estilo para o logotipo */
+        .logo img {
+            width: 150px; /* Ajuste o tamanho conforme necessário */
+            height: 150px; /* Ajuste o tamanho conforme necessário */
+            margin-bottom: 20px;
+            border-radius: 50%; /* Se o logo não for redondo, remova esta linha */
+            object-fit: cover;
+            /* **IMPORTANTE:** O caminho da imagem foi corrigido para 'logo.png' */
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
 
-    .logo-wrap{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:18px;
-      margin-bottom:18px;
-    }
-    .logo{
-      width:120px;
-      height:120px;
-      display:block;
-      flex-shrink:0;
-    }
+        .tagline {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+        }
 
-    h1{
-      margin:8px 0 6px;
-      font-size:34px;
-      letter-spacing:1px;
-    }
-    .tag{
-      color:var(--accent-2);
-      font-weight:600;
-      margin-bottom:14px;
-    }
-    p.lead{
-      color:var(--muted);
-      max-width:760px;
-      margin: 0 auto 18px;
-      line-height:1.5;
-      font-size:18px;
-    }
+        .description {
+            font-size: 1em;
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
 
-    .when{
-      display:inline-block;
-      padding:10px 18px;
-      border-radius:999px;
-      background: linear-gradient(90deg, rgba(215,38,56,0.12), rgba(245,166,35,0.08));
-      color: #fff;
-      font-weight:600;
-      border: 1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-    }
+        /* Estilo para o botão "Em breve" */
+        .cta-button {
+            display: inline-block;
+            background-color: #e62020; /* Uma cor vermelha que remete a motores/paixão */
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
 
-    footer{
-      margin-top:20px;
-      color: rgba(255,255,255,0.32);
-      font-size:13px;
-    }
+        .cta-button:hover {
+            background-color: #cc0000;
+        }
 
-    /* responsive */
-    @media (max-width:520px){
-      .logo{width:88px;height:88px}
-      h1{font-size:26px}
-      .card{padding:22px}
-      p.lead{font-size:15px}
-    }
-  </style>
+        /* Estilos para o rodapé */
+        .footer {
+            margin-top: 50px;
+            font-size: 0.8em;
+            color: #777777;
+        }
+
+        .footer a {
+            color: #aaaaaa;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <div class="card" role="main" aria-labelledby="title">
-    <div class="logo-wrap" aria-hidden="true">
-      <!-- SVG do logo simplificado: pistão + microfone -->
-      <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="g1" x1="0" x2="1">
-            <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
-            <stop offset="1" stop-color="#cfcfcf" stop-opacity="0.75"/>
-          </linearGradient>
-          <filter id="f1" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="2" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Logo Pistão & Prosa">
+        </div>
 
-        <!-- circle badge -->
-        <circle cx="100" cy="100" r="94" fill="#0f0f11"/>
-        <circle cx="100" cy="100" r="74" fill="url(#g1)" opacity="0.04"/>
+        <h1>Pistão & Prosa</h1>
+        <p class="tagline">Histórias, risadas e paixão por motores</p>
 
-        <!-- piston stylized (left) -->
-        <g transform="translate(40,40) scale(0.7)">
-          <rect x="30" y="10" width="18" height="66" rx="4" fill="url(#g1)" opacity="0.98"/>
-          <rect x="24" y="70" width="30" height="6" rx="3" fill="#101010"/>
-          <rect x="14" y="76" width="50" height="8" rx="4" fill="#0d0d0d" />
-          <circle cx="39" cy="8" r="8" fill="#2b2b2b"/>
-        </g>
+        <p class="description">
+            Bem-vindo! Somos três amigos que conversam sobre carros — clássicos, esportivos e histórias
+            da estrada. Nosso site está em construção, mas já já a garagem abre as portas: episódios,
+            encontros, bastidores e muito papo de oficina.
+        </p>
 
-        <!-- microphone (right) -->
-        <g transform="translate(110,38) scale(0.7)">
-          <rect x="18" y="8" width="26" height="48" rx="12" fill="url(#g1)"/>
-          <rect x="26" y="56" width="10" height="16" rx="3" fill="#101010"/>
-          <rect x="14" y="72" width="38" height="6" rx="3" fill="#0d0d0d"/>
-          <line x1="28" y1="62" x2="46" y2="62" stroke="rgba(0,0,0,0.25)" stroke-width="2"/>
-        </g>
-
-        <!-- small gear behind -->
-        <g transform="translate(94,94) rotate(12)">
-          <g filter="url(#f1)">
-            <path d="M0 -44 a44 44 0 1 0 0.01 0" stroke="#2b2b2b" stroke-width="6" fill="none"/>
-            <circle cx="0" cy="0" r="10" fill="#121212"/>
-          </g>
-        </g>
-
-      </svg>
+        <a href="#" class="cta-button">Em breve - fique ligado!</a>
+        
+        <div class="footer">
+            <p>
+                Canal no YouTube: 
+                <a href="https://www.youtube.com/@pistaoeprosa" target="_blank">@pistaoeprosa</a> ([disponível])
+            </p>
+            <p>© Pistão & Prosa</p>
+        </div>
     </div>
-
-    <h1 id="title">Pistão & Prosa</h1>
-    <div class="tag">Histórias, risadas e paixão por motores</div>
-
-    <p class="lead">
-      Bem-vindo! Somos três amigos que conversam sobre carros — clássicos, esportivos e histórias da estrada.
-      Nosso site está em construção, mas já já a garagem abre as portas: episódios, encontros, bastidores e muito papo de oficina.
-    </p>
-
-    <div class="when">Em breve — fique ligado!</div>
-
-    <footer>
-      <div>Canal no YouTube: <em>@pistaoeprosa</em> (já disponível)</div>
-      <div style="margin-top:6px">© Pistão & Prosa</div>
-    </footer>
-  </div>
 </body>
 </html>
