@@ -9,8 +9,8 @@
         /* Estilos básicos para o fundo escuro e centralização */
         body {
             font-family: Arial, sans-serif;
-            background-color: #1a1a1a; /* Fundo bem escuro */
-            color: #f0f0f0; /* Cor do texto claro */
+            background-color: #1a1a1a; 
+            color: #f0f0f0; 
             margin: 0;
             display: flex;
             justify-content: center;
@@ -18,25 +18,28 @@
             min-height: 100vh;
             text-align: center;
             padding: 20px;
+            box-sizing: border-box; 
         }
 
         /* Estilo para o cartão central (container) */
         .container {
-            background-color: #282828; /* Fundo do cartão ligeiramente mais claro que o body */
+            background-color: #282828;
             padding: 50px 40px;
             border-radius: 12px;
             max-width: 600px;
+            width: 100%;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            box-sizing: border-box;
         }
 
         /* Estilo para o logotipo */
         .logo img {
-            width: 150px; /* Ajuste o tamanho conforme necessário */
-            height: 150px; /* Ajuste o tamanho conforme necessário */
+            width: 150px;
+            height: 150px;
             margin-bottom: 20px;
-            border-radius: 50%; /* Se o logo não for redondo, remova esta linha */
+            /* Se o logo não for redondo, remova o border-radius */
+            border-radius: 50%;
             object-fit: cover;
-            /* **IMPORTANTE:** O caminho da imagem foi corrigido para 'logo.png' */
         }
         
         h1 {
@@ -60,7 +63,7 @@
         /* Estilo para o botão "Em breve" */
         .cta-button {
             display: inline-block;
-            background-color: #e62020; /* Uma cor vermelha que remete a motores/paixão */
+            background-color: #e62020; /* Vermelho forte */
             color: #ffffff;
             padding: 12px 25px;
             text-decoration: none;
@@ -88,6 +91,23 @@
         .footer a:hover {
             text-decoration: underline;
         }
+
+        /* AJUSTE: MEDIA QUERY PARA TELAS MENORES (Celulares) */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 0; 
+            }
+
+            .container {
+                padding: 40px 20px;
+                border-radius: 0; 
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -105,12 +125,14 @@
             encontros, bastidores e muito papo de oficina.
         </p>
 
-        <a href="#" class="cta-button">Em breve - fique ligado!</a>
+        <a href="https://www.youtube.com/@Pistaoeprosa" target="_blank" class="cta-button">
+            Em breve - fique ligado!
+        </a>
         
         <div class="footer">
             <p>
                 Canal no YouTube: 
-                <a href="https://www.youtube.com/@pistaoeprosa" target="_blank">@pistaoeprosa</a> ([disponível])
+                <a href="https://www.youtube.com/@Pistaoeprosa" target="_blank">@pistaoeprosa</a> (disponível)
             </p>
             <p>© Pistão & Prosa</p>
         </div>
